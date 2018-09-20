@@ -1,4 +1,4 @@
-# Connect_Four
+# :red_circle: :large_blue_circle: Connect Four :red_circle: :large_blue_circle:
 
 ![Image of Yaktocat](https://i.imgur.com/Wm3L2Pm.png)
 
