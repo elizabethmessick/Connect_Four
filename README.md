@@ -26,7 +26,7 @@
       - If so, print screen to say "Tie Game"
 	- Is true if one of the players has four consecutive strings anywhere in the array 
       - If so, print screen to say "Player __ Wins!"
-	- Check horizontally 
-	- Check vertically 
-	- Check diagonally
+		- Check horizontally 
+		- Check vertically 
+		- Check diagonally
 
