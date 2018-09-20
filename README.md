@@ -1,10 +1,10 @@
 # Connect_Four
 
--Draw a grid (6 rows X 7 columns) in HTML
--Style the grid in CSS
--Make the grid a 2D array of char values(making an empty board)  in JS 
--Make sure each value is an empty string at initialization 
--Start the game
+- Draw a grid (6 rows X 7 columns) in HTML
+- Style the grid in CSS
+- Make the grid a 2D array of char values(making an empty board)  in JS 
+- Make sure each value is an empty string at initialization 
+- Start the game
 	-Player1 chooses their choice of 7 columns to drop their token into
 	-Check to see if the column Player1 is dropping the token into is full 
 		-If that column is full, then ask the user to pick a different column 
