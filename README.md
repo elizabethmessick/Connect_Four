@@ -27,4 +27,4 @@
 //Check vertically 
 //Check diagonally
 
-<img>https://i.imgur.com/Wm3L2Pm.png</img>
+![Image of Yaktocat](https://i.imgur.com/Wm3L2Pm.png)
