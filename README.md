@@ -3,7 +3,7 @@
 ## My Fabulous Wireframe. Isn't it gorgeous? 
 ![Image of Yaktocat](https://i.imgur.com/Wm3L2Pm.png)
 
-## Pseudocode Time Baby! 
+## Pseudocode Time, baby! 
 - Draw a grid (6 rows X 7 columns) in HTML
 - Style the grid in CSS
 - Make the grid a 2D array of char values(making an empty board)  in JS 
