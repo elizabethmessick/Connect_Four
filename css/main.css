@@ -1,0 +1,37 @@
+body {
+    background-color: red; 
+    /* margin-top: 10%; */
+}   
+
+h1 {
+    text-align: center;
+    color: pink;
+}
+
+table {
+    background-color: pink; 
+    margin: auto; 
+    width: 600px;
+    height: 700px;
+    margin-top: 20px;
+    text-align: center; 
+    border-radius: 5%;
+}
+
+td {
+    border-radius: 100%;
+    padding: 2px; 
+    width: 50px;
+    color: red; 
+    background-color: white;
+
+}
+
+
+
+}
+
+.slotOne {
+    color: yellow;
+    background-color: lime;
+}
