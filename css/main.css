@@ -24,14 +24,30 @@ td {
     width: 50px;
     color: red; 
     background-color: white;
-
 }
 
 
-
+div {
+    background-color: pink; 
+    margin: auto; 
+    width: 600px;
+    height: 70px;
+    margin-top: 15px;
+    text-align: center; 
+    border-radius: 5%;
 }
 
-.slotOne {
-    color: yellow;
-    background-color: lime;
+button {
+    padding: 2px; 
+    width: 80px;
+    height: 50px; 
+    color: red; 
+    background-color: white;
+}
+
+footer {
+    text-align: center; 
+    margin-top: 20px;
+
+
 }

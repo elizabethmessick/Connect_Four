@@ -1,60 +1,77 @@
 
-console.log("this is working");
 /*----- constants -----*/
+var players = {
+    '1': 'red',
+    '-1': 'yellow',
+    'null': 'white'
+  };  
 
 /*----- app's state (variables) -----*/
-var board; 
-var playerTurn; 
+var board, playerTurn, winner;
 
-var slotOne;
-var slotTwo;
-var slotThree;
-var slotFour;
-var slotFive;
-var slotSix;
-var slotSeven; 
-
-var checkWin; 
-var gameOver; 
 /*----- cached element references -----*/
-slotOne = document.querySelector(".slotOne");
-slotTwo = document.querySelector(".slotTwo");
-slotThree = document.querySelector(".slotThree");
-slotFour = document.querySelector(".slotFour");
-slotFive = document.querySelector(".slotFive");
-slotSix = document.querySelector(".slotSix");
-slotSeven = document.querySelector(".slotSeven");
+
 
 /*----- event listeners -----*/
-slotOne.addEventListener("click", slotFill);
-slotTwo.addEventListener("click", slotFill);
-slotThree.addEventListener("click", slotFill);
-slotFour.addEventListener("click", slotFill);
-slotFive.addEventListener("click", slotFill);
-slotSix.addEventListener("click", slotFill);
-slotSeven.addEventListener("click", slotFill);
-
+document.getElementById("slot").addEventListener("click", handleClick);
+document.getElementById("reset").addEventListener("click", function(){
+    location.reload()}); 
 
 /*----- functions -----*/
-board = [[], [], [], [], [], []];
+initalize(); 
+
+function reset() {
+    window.location.reload()
+}
+
+function handleClick(event) {
+    var target = event.target;
+    if (target.tagName !== "BUTTON") return;
+    // debugger;
+    var col = parseInt(target.id.charAt(6));
+    if (!board[col].includes(null)) {alert ("try again")};  
+    var row = board[col].indexOf(null); 
+    // // update all state(board, playerTurn, winner)
+    board[col][row] = playerTurn; 
+    playerTurn *= -1;
+    winner = getWinner(); 
+    render();
+}
+
+function getWinner() {
+    return null; 
+}
 
 
-
-function slotFill() {
-// board.splice;
-
-console.log("you clicked a slot!");
-};
-
-
-// board = new Array(6);
-// for (var i = 0; i < board.length; i++) {
-//   board[i] = new Array(7);  
-// }
-// console.log(board);
+function render() {
+    // transfer all state to the DOM
+    board.forEach(function(col, colIdx) {
+        col.forEach(function(cell, rowIdx) {
+            var td = document.getElementById(`c${colIdx}r${rowIdx}`);
+            td.style.backgroundColor = players[cell];
+        });
+    });
+}
 
 function initalize() {
-  
+    playerTurn = 1;
+    winner = null;
+    board = [
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null],
+        [null, null, null, null, null, null]
+    ];
 };
 
-initalize(); 
+render();
+ 
+
+//id.charAt(3)
+//"3"
+//parseInt(id.charAt(3))
+//returns the number 3 
+
