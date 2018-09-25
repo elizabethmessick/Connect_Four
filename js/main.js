@@ -33,26 +33,45 @@ function handleClick(event) {
 }
 
 function getWinner() {
-    for (var colIdx = 0; colIdx < board.length; colIdx++) {//col
-        for (var rowIdx = 0; rowIdx < board[colIdx].length; rowIdx++) {//row
-            console.log(colIdx, rowIdx, playerTurn);
-            if (board[colIdx][rowIdx] === null) {
-                break; 
-            }
+    for (var colIdx = 0; colIdx < board.length; colIdx++) {
+            if (board[colIdx][rowIdx] === null) break;
+            winner = checkCellForWin(colIdx, rowIdx); 
+            if (winner) break; 
         }  
+        if (winner) break; 
     } 
+
+
+function checkCellForWin(col, row) {
+    winner = upWin(col, row);
+    if (winner) return winner;
+    winner = sideWin(col, row);
+    if (winner) return winner;
+    winner = diagUpWin(col, row);
+    if (winner) return winner;
+    return diagDownWin(col, row);
+
+    // return upWin(col, row) || sideWin(col, row) || diagUpWin(col, row) || diagDownWin(col, win);
+    //do || for the diagonals 
 }
 
-// function winnerUp(col, row){
-//     var sum;
-//     if(row > 4){
-//         return;
-//     }
-//     sum = board[col][row] + board[col+1][row] + board[col+2][row] + board[col+3][row];
-//     var totalSum = Math.abs(sum);
-//     return totalSum === 4 ? board[col][row] : null; 
-// }
-
+function upWin(col, row) {
+    if (row > 2) return null;
+    return Math.abs(board[col][row] + board[col][row + 1] + board[col][row + 2] + board[col][row + 3]) === 4 ? board[col][row] : null;
+}
+function sideWin(col, row) {
+    if (col > 3) return null;
+    return Math.abs(board[col][row] + board[col +1][row] + board[col + 2][row] + board[col + 3][row]) === 4 ? board[col][row] : null;
+}
+function diagUpWin(col, row) {
+    if (col > 3) return null;
+    return Math.abs(board[col][row] + board[col][row + 1] + board[col][row + 2] + board[col][row + 3]) === 4 ? board[col][row] : null;
+}
+function diagDownWin(col, row) {
+    if (col > 3) return null;
+    return Math.abs(board[col][row] + board[col][row + 1] + board[col][row + 2] + board[col][row + 3]) === 4 ? board[col][row] : null;
+}
+    
 function render() {
     // transfer all state to the DOM
     board.forEach(function(col, colIdx) {
