@@ -14,8 +14,9 @@ var board, playerTurn, winner;
 /*----- event listeners -----*/
 document.getElementById("slot").addEventListener("click", handleClick);
 document.getElementById("reset").addEventListener("click", function(){
-    location.reload()}); 
-
+    initalize(); render();
+    });
+    
 /*----- functions -----*/
 initalize(); 
 
@@ -25,7 +26,7 @@ function handleClick(event) {
     var col = parseInt(target.id.charAt(6));
     if (!board[col].includes(null)) {alert ("try again")};  
     var row = board[col].indexOf(null); 
-    // // update all state(board, playerTurn, winner)
+    //update all state(board, playerTurn, winner)
     board[col][row] = playerTurn; 
     winner = getWinner(); 
     playerTurn *= -1;
@@ -34,42 +35,41 @@ function handleClick(event) {
 
 function getWinner() {
     for (var colIdx = 0; colIdx < board.length; colIdx++) {
+        for (var rowIdx = 0; rowIdx < board[colIdx].length; rowIdx++) {
             if (board[colIdx][rowIdx] === null) break;
             winner = checkCellForWin(colIdx, rowIdx); 
             if (winner) break; 
         }  
         if (winner) break; 
-    } 
-
+    }
+}
 
 function checkCellForWin(col, row) {
     winner = upWin(col, row);
     if (winner) return winner;
     winner = sideWin(col, row);
     if (winner) return winner;
-    winner = diagUpWin(col, row);
+    winner = diagRightWin(col, row);
     if (winner) return winner;
-    return diagDownWin(col, row);
-
+    return diagLeftWin(col, row);
     // return upWin(col, row) || sideWin(col, row) || diagUpWin(col, row) || diagDownWin(col, win);
-    //do || for the diagonals 
 }
 
 function upWin(col, row) {
     if (row > 2) return null;
-    return Math.abs(board[col][row] + board[col][row + 1] + board[col][row + 2] + board[col][row + 3]) === 4 ? board[col][row] : null;
+    return Math.abs(board[col][row] + board[col][row + 1] + board[col][row + 2] + board[col][row + 3]) === 4 ? alert("Player " + board[col][row] + " wins") : null;
 }
 function sideWin(col, row) {
     if (col > 3) return null;
-    return Math.abs(board[col][row] + board[col +1][row] + board[col + 2][row] + board[col + 3][row]) === 4 ? board[col][row] : null;
+    return Math.abs(board[col][row] + board[col +1][row] + board[col + 2][row] + board[col + 3][row]) === 4 ? alert(board[col][row]) : null;
 }
-function diagUpWin(col, row) {
+function diagRightWin(col, row) {
     if (col > 3) return null;
-    return Math.abs(board[col][row] + board[col][row + 1] + board[col][row + 2] + board[col][row + 3]) === 4 ? board[col][row] : null;
+    return Math.abs(board[col][row] + board[col + 1][row + 1] + board[col + 2][row + 2] + board[col +3][row + 3]) === 4 ? alert(board[col][row]) : null;
 }
-function diagDownWin(col, row) {
+function diagLeftWin(col, row) {
     if (col > 3) return null;
-    return Math.abs(board[col][row] + board[col][row + 1] + board[col][row + 2] + board[col][row + 3]) === 4 ? board[col][row] : null;
+    return Math.abs(board[col][row] + board[col + 1][row - 1] + board[col + 2][row - 2] + board[col + 3][row - 3]) === 4 ? alert(board[col][row]) : null;
 }
     
 function render() {
