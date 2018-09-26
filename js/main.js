@@ -18,9 +18,12 @@ var beepAudio = new Audio('http://soundbible.com/mp3/Robot_blip-Marianne_Gagnon-
 
 /*----- cached element references -----*/
 var message = document.getElementById("message");
-//gives you access to manipulate without having to regrab
 var columnButtons = document.querySelectorAll("#slot button");
-var test = document.getElementById("test");
+var popUpBox = document.getElementById("popUpBox");
+var popUpText = document.getElementById("popUpText");
+var playAgain = document.getElementById("playAgain").addEventListener("click", function () {
+	location.reload();
+})
 
 /*----- event listeners -----*/
 document.getElementById("slot").addEventListener("click", handleClick);
@@ -28,6 +31,7 @@ document.getElementById("reset").addEventListener("click", function () {
 	initalize();
 	render();
 });
+
 
 /*----- functions -----*/
 initalize();
@@ -115,8 +119,8 @@ function render() {
 
 	if (winner) {
 		// message.textContent = winningMessage[winner];
-		test.textContent = winningMessage[winner];
-		test.style.display = "block";
+		popUpText.textContent = winningMessage[winner];
+		popUpBox.style.display = "block";
 	} else {
 		message.textContent = `Hello Player ${
 			playerTurn === 1 ? "One" : "Two"
@@ -124,8 +128,8 @@ function render() {
 	}
 
 	// if (winner = "tie") {
-	// 	test.textContent = winningMessage[winner];
-	// 	test.style.display = "block";
+	// 	popUpBox.textContent = winningMessage[winner];
+	// 	popUpBox.style.display = "block";
 	// }
 }
 

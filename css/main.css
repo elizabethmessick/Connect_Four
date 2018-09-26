@@ -4,6 +4,9 @@ text-align: center;
 }
 
 h1 {
+	position: relative;
+	left: 5px;
+	top: 10px;
 	margin: auto;
 	color: white;
 	text-shadow: 2px 2px black;
@@ -11,6 +14,8 @@ h1 {
 }
 
 h2 {
+	position: relative;
+	top: 4px;
 	margin: auto;
 	color: white;
 	text-shadow: 2px 2px black;
@@ -27,7 +32,7 @@ table {
 	text-align: center;
 	border-radius: 5%;
 	position: relative;
-    top: -41px;
+    top: -56px;
 }
 
 td {
@@ -37,6 +42,8 @@ td {
 }
 
 div {
+	position: relative;
+    top: -22px;
 	margin: auto;
 	width: 600px;
 	height: 70px;
@@ -46,7 +53,7 @@ div {
 
 #slot {
 	margin: auto;
-	margin-top: 50px;
+    margin-top: 30px;
 }
 
 button {
@@ -54,7 +61,6 @@ button {
 	background-color: lightpink;
 	border-radius: 20%;
 	color: rgb(247, 85, 49);
-	text-shadow: 2px 2px black;
 	font-size: 20px;
 	font-weight: bold;
 	height: 30px;
@@ -78,8 +84,8 @@ button:hover {
 	font-weight: bold;
 	font-size: 20px;
 	margin: auto;
-	position: absolute;
-    top: 665px;
+	position: relative;
+    top: -46px;
 
 }
 
@@ -87,15 +93,27 @@ footer {
 	text-align: center;
 }
 
-#test {
+#popUpBox {
 	height: 300px;
 	width: 300px;
 	background-color: dodgerblue;
 	color: linen;
 	display: none;
-    position: absolute;
-    top: 265px;
-	left: 494px;
+	position: relative;
+    top: -547px;
+    left: 3px;
 	text-align: center;
 	font-size: 50px;
 }
+
+#playAgain {
+	width: 100px;
+	height: 100px;
+	background-color: white;
+	color: black;
+	font-size: 20px;
+	position: absolute;
+    top: 180px;
+    right: 99px;
+}
+
