@@ -1,6 +1,7 @@
 body {
 background-image: url("http://getwallpapers.com/wallpaper/full/6/8/d/504388.jpg");
 text-align: center;
+position: relative;
 }
 
 h1 {
@@ -99,9 +100,10 @@ footer {
 	background-color: dodgerblue;
 	color: linen;
 	display: none;
-	position: relative;
-    top: -547px;
-    left: 3px;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 	text-align: center;
 	font-size: 50px;
 }

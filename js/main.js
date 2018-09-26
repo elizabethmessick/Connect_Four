@@ -126,11 +126,6 @@ function render() {
 			playerTurn === 1 ? "One" : "Two"
 			}`;
 	}
-
-	// if (winner = "tie") {
-	// 	popUpBox.textContent = winningMessage[winner];
-	// 	popUpBox.style.display = "block";
-	// }
 }
 
 
