@@ -101,12 +101,11 @@ function diagonalWin(col, row) {
 }
 
 function checkTieGame() {
-	if (winner !== null && turnCounter === 42) console.log("it's a tie!");
+	return winner === null && turnCounter === 42;
 }
 
 function endGame() {
-	if (winner !== null && turnCounter < 42)
-		console.log(`Player # ${playerTurn} won!`);
+	if (winner !== null && turnCounter < 42);
 }
 //playerTurn + 1
 //if (tie === 42) return console.log("it's a tie")
@@ -124,14 +123,14 @@ function render() {
 
 	if (winner !== null) {
 		if (winner === 1) {
-			message.innerHTML = `Player 1 wins!`;
+			message.textContent = `Player 1 wins!`;
 		} else if (winner === -1) {
-			message.innerHTML = `Player 2 wins!`;
+			message.textContent = `Player 2 wins!`;
 		}
 	} else if (playerTurn === 1) {
-		message.innerHTML = `Hello Player 1!`;
+		message.textContent = `Hello Player 1!`;
 	} else if (playerTurn === -1) {
-		message.innerHTML = `Hello Player 2!`;
+		message.textContent = `Hello Player 2!`;
 	}
 }
 
