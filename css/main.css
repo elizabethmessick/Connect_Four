@@ -1,53 +1,70 @@
 body {
-	background-color: red;
-	text-align: center;
+background-image: url("http://getwallpapers.com/wallpaper/full/6/8/d/504388.jpg");
+text-align: center;
 }
 
 h1 {
-	text-align: center;
-	color: pink;
+	margin: auto;
+	color: white;
+	text-shadow: 2px 2px black;
+	font-size: 50px;
 }
 
 h2 {
+	margin: auto;
 	color: white;
+	text-shadow: 2px 2px black;
 	font-size: 30px;
-	margin-top: 2px;
+	background-color: black;
 }
 
 table {
 	background-color: pink;
 	margin: auto;
+	margin-top: 10px;
 	width: 600px;
 	height: 500px;
-	margin-top: -10px;
 	text-align: center;
 	border-radius: 5%;
+	position: relative;
+    top: -41px;
 }
 
 td {
 	border-radius: 50%;
 	width: 50px;
-	color: red;
 	background-color: white;
-	background-image: ;
 }
 
 div {
 	margin: auto;
 	width: 600px;
 	height: 70px;
-	margin-top: 10px;
+	/* margin-top: 10px; */
 	text-align: center;
 }
 
+#slot {
+	margin: auto;
+	margin-top: 50px;
+}
+
 button {
-	margin-top: -20px;
-	padding: 2px;
-	width: 80px;
-	height: 80px;
-	color: red;
-	background-color: white;
-	border-radius: 50%;
+	margin: 3px;
+	background-color: lightpink;
+	border-radius: 20%;
+	color: rgb(247, 85, 49);
+	text-shadow: 2px 2px black;
+	font-size: 20px;
+	font-weight: bold;
+	height: 30px;
+	width: 70px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #3e8e41;
+	color: white;
 }
 
 #reset {
@@ -56,19 +73,29 @@ button {
 	width: 120px;
 	height: 40px;
 	color: red;
-	background-color: white;
+	background-color: yellow;
 	border-radius: 10%;
-	margin-top: 15px;
-}
+	font-weight: bold;
+	font-size: 20px;
+	margin: auto;
+	position: absolute;
+    top: 665px;
 
-#slot button {
-	outline: none;
-}
-
-#slot {
-	outline: none;
 }
 
 footer {
 	text-align: center;
+}
+
+#test {
+	height: 300px;
+	width: 300px;
+	background-color: dodgerblue;
+	color: linen;
+	display: none;
+    position: absolute;
+    top: 265px;
+	left: 494px;
+	text-align: center;
+	font-size: 50px;
 }

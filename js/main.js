@@ -1,8 +1,8 @@
 /*----- constants -----*/
 var players = {
-	"1": "red",
+	"1": "rgb(150, 175, 214)",
 	"-1": "yellow",
-	null: "white"
+	null: "rgb(247, 85, 49)"
 };
 
 const winningMessage = {
@@ -13,11 +13,14 @@ const winningMessage = {
 
 /*----- app's state (variables) -----*/
 var board, playerTurn, winner, turnCounter;
+var beepAudio = new Audio('http://soundbible.com/mp3/Robot_blip-Marianne_Gagnon-120342607.mp3');
+// var whistleAudio = new Audio('../sounds/whistle.mp3')
 
 /*----- cached element references -----*/
 var message = document.getElementById("message");
 //gives you access to manipulate without having to regrab
 var columnButtons = document.querySelectorAll("#slot button");
+var test = document.getElementById("test");
 
 /*----- event listeners -----*/
 document.getElementById("slot").addEventListener("click", handleClick);
@@ -35,6 +38,7 @@ function handleClick(event) {
 	if (target.tagName !== "BUTTON") return;
 	var col = parseInt(target.id.charAt(6));
 	var row = board[col].indexOf(null);
+	beepAudio.play();
 	board[col][row] = playerTurn;
 	turnCounter += 1;
 	setWinner();
@@ -110,13 +114,21 @@ function render() {
 	});
 
 	if (winner) {
-		message.textContent = winningMessage[winner];
+		// message.textContent = winningMessage[winner];
+		test.textContent = winningMessage[winner];
+		test.style.display = "block";
 	} else {
 		message.textContent = `Hello Player ${
 			playerTurn === 1 ? "One" : "Two"
 			}`;
 	}
+
+	// if (winner = "tie") {
+	// 	test.textContent = winningMessage[winner];
+	// 	test.style.display = "block";
+	// }
 }
+
 
 function initalize() {
 	playerTurn = 1;
