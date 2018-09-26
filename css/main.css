@@ -8,6 +8,12 @@ h1 {
 	color: pink;
 }
 
+h2 {
+	color: white;
+	font-size: 30px;
+	margin-top: 2px;
+}
+
 table {
 	background-color: pink;
 	margin: auto;
@@ -53,6 +59,14 @@ button {
 	background-color: white;
 	border-radius: 10%;
 	margin-top: 15px;
+}
+
+#slot button {
+	outline: none;
+}
+
+#slot {
+	outline: none;
 }
 
 footer {
