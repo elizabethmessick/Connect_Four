@@ -13,9 +13,12 @@ Connect Four is a two-player connection game in which the players take turns dro
 [Click to play!](https://elizabethmessick.github.io/Connect_Four/)
 
 
-## Next Steps 
-- Add sound effects and animations
-- Add music
+## Next Steps
+- Add animations
+- Add sound clip for tie
+- Change color of player turn 
+- Add a pause button for the music 
+- Have music play instantly 
 
 ## Wireframe
 ![Image of wireframe](https://i.imgur.com/Wm3L2Pm.png)

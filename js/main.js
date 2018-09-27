@@ -1,22 +1,21 @@
 /*----- constants -----*/
 const PLAYERS = {
-	"1": "rgb(150, 175, 214)",
+	"1": "rgb(35, 153, 182)",
 	"-1": "yellow",
 	null: "rgb(247, 85, 49)"
 };
 
 const WINNING_MESSAGE = {
-	"1": "Player One wins! Woo hoo!",
-	"-1": "Player Two is the one with the chicken dinner!",
+	"1": "Player One wins!",
+	"-1": "Player Two wins!",
 	tie: "You guys suck haha!"
 };
 
 /*----- app's state (variables) -----*/
 var board, playerTurn, winner, turnCounter;
 var beepAudio = new Audio("beep.mp3");
-var winningAudio = new Audio("winning.mp3");
-// var tieAudio = new Audio("tie.mp3");
-var accordionAudio = new Audio("accordion.mp3");
+var winningAudio = new Audio("https://www.thesoundarchive.com/austinpowers/yababy.mp3");
+var powersAudio = new Audio("powers.mp3");
 
 /*----- cached element references -----*/
 var message = document.getElementById("message");
@@ -50,7 +49,7 @@ function columnClick(event) {
 	if (target.tagName !== "BUTTON") return;
 	var col = parseInt(target.id.charAt(6));
 	var row = board[col].indexOf(null);
-	accordionAudio.play();
+	powersAudio.play();
 	beepAudio.play();
 	board[col][row] = playerTurn;
 	turnCounter += 1;
@@ -126,7 +125,7 @@ function render() {
 		popUpText.textContent = WINNING_MESSAGE[winner];
 		popUpBox.style.display = "block";
 		winningAudio.play();
-		accordionAudio.pause();
+		powersAudio.pause();
 	} else {
 		message.textContent = `Hello Player ${playerTurn === 1 ? "One" : "Two"}`;
 	}
