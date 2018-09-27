@@ -12,16 +12,17 @@ h1 {
 	color: white;
 	text-shadow: 2px 2px black;
 	font-size: 50px;
+	font-family: 'Monoton', cursive;
 }
 
 h2 {
 	position: relative;
-	top: 4px;
-	margin: auto;
-	color: white;
-	text-shadow: 2px 2px black;
-	font-size: 30px;
-	background-color: black;
+    top: -11px;
+    margin: auto;
+    color: white;
+    text-shadow: 2px 2px black;
+    font-size: 33px;
+    font-family: 'Fredoka One', cursive;
 }
 
 table {
@@ -53,7 +54,7 @@ div {
 
 #slot {
 	margin: auto;
-    margin-top: 30px;
+    margin-top: 31px;
 }
 
 button {
@@ -108,12 +109,12 @@ footer {
 
 #playAgain {
 	width: 100px;
-	height: 100px;
-	background-color: white;
-	color: black;
-	font-size: 20px;
-	position: absolute;
-    top: 180px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    position: absolute;
+    top: 5px;
     right: 99px;
 }
 

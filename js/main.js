@@ -13,7 +13,10 @@ const WINNING_MESSAGE = {
 
 /*----- app's state (variables) -----*/
 var board, playerTurn, winner, turnCounter;
-var beepAudio = new Audio("http://soundbible.com/mp3/Robot_blip-Marianne_Gagnon-120342607.mp3");
+var beepAudio = new Audio("beep.mp3");
+var winningAudio = new Audio("winning.mp3");
+// var tieAudio = new Audio("tie.mp3");
+var accordionAudio = new Audio("accordion.mp3");
 
 /*----- cached element references -----*/
 var message = document.getElementById("message");
@@ -30,7 +33,14 @@ document.getElementById("reset").addEventListener("click", function () {
 document.getElementById("playAgain").addEventListener("click", function () {
 	location.reload();
 });
-
+columnButtons.forEach(function (button) {
+	button.addEventListener("mouseenter", function (e) {
+		e.target.style.backgroundColor = PLAYERS[playerTurn];
+	})
+	button.addEventListener("mouseout", function (e) {
+		e.target.style.backgroundColor = "lightpink";
+	})
+})
 /*----- functions -----*/
 initalize();
 
@@ -40,6 +50,7 @@ function columnClick(event) {
 	if (target.tagName !== "BUTTON") return;
 	var col = parseInt(target.id.charAt(6));
 	var row = board[col].indexOf(null);
+	accordionAudio.play();
 	beepAudio.play();
 	board[col][row] = playerTurn;
 	turnCounter += 1;
@@ -114,6 +125,8 @@ function render() {
 	if (winner) {
 		popUpText.textContent = WINNING_MESSAGE[winner];
 		popUpBox.style.display = "block";
+		winningAudio.play();
+		accordionAudio.pause();
 	} else {
 		message.textContent = `Hello Player ${playerTurn === 1 ? "One" : "Two"}`;
 	}

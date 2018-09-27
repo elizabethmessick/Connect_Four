@@ -1,4 +1,4 @@
-## Game screen! 
+## Connect Four 
 ![Image of initial screen](https://i.imgur.com/JwA82XS.png)
 
 ## Description
