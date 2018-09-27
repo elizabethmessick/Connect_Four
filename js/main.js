@@ -1,11 +1,11 @@
 /*----- constants -----*/
-var players = {
+const PLAYERS = {
 	"1": "rgb(150, 175, 214)",
 	"-1": "yellow",
 	null: "rgb(247, 85, 49)"
 };
 
-const winningMessage = {
+const WINNING_MESSAGE = {
 	"1": "Player One wins! Woo hoo!",
 	"-1": "Player Two is the one with the chicken dinner!",
 	tie: "You guys suck haha!"
@@ -13,30 +13,28 @@ const winningMessage = {
 
 /*----- app's state (variables) -----*/
 var board, playerTurn, winner, turnCounter;
-var beepAudio = new Audio('http://soundbible.com/mp3/Robot_blip-Marianne_Gagnon-120342607.mp3');
-// var whistleAudio = new Audio('../sounds/whistle.mp3')
+var beepAudio = new Audio("http://soundbible.com/mp3/Robot_blip-Marianne_Gagnon-120342607.mp3");
 
 /*----- cached element references -----*/
 var message = document.getElementById("message");
 var columnButtons = document.querySelectorAll("#slot button");
-var popUpBox = document.getElementById("popUpBox");
-var popUpText = document.getElementById("popUpText");
-var playAgain = document.getElementById("playAgain").addEventListener("click", function () {
-	location.reload();
-})
+var popUpBox = document.getElementById("pop-up-box");
+var popUpText = document.getElementById("pop-up-text");
 
 /*----- event listeners -----*/
-document.getElementById("slot").addEventListener("click", handleClick);
+document.getElementById("slot").addEventListener("click", columnClick);
 document.getElementById("reset").addEventListener("click", function () {
 	initalize();
 	render();
 });
-
+document.getElementById("playAgain").addEventListener("click", function () {
+	location.reload();
+});
 
 /*----- functions -----*/
 initalize();
 
-function handleClick(event) {
+function columnClick(event) {
 	if (winner !== null) return;
 	var target = event.target;
 	if (target.tagName !== "BUTTON") return;
@@ -62,72 +60,64 @@ function setWinner() {
 	if (winner === null && turnCounter === 42) winner = "tie";
 }
 
-function checkCellForWin(col, row) {
-	return upWin(col, row) || sideWin(col, row) || diagonalWin(col, row);
+function checkCellForWin(colIdx, rowIdx) {
+	return checkUpWin(colIdx, rowIdx) || checkSideWin(colIdx, rowIdx) || checkDiagonalWin(colIdx, rowIdx);
 }
 
-function upWin(col, row) {
-	if (row > 2) return null;
+function checkUpWin(colIdx, rowIdx) {
+	if (rowIdx > 2) return null;
 	return Math.abs(
-		board[col][row] +
-		board[col][row + 1] +
-		board[col][row + 2] +
-		board[col][row + 3]
-	) === 4
-		? board[col][row]
-		: null;
+		board[colIdx][rowIdx] +
+		board[colIdx][rowIdx + 1] +
+		board[colIdx][rowIdx + 2] +
+		board[colIdx][rowIdx + 3]
+	) === 4 ? board[colIdx][rowIdx] : null;
 }
-function sideWin(col, row) {
-	if (col > 3) return null;
+
+function checkSideWin(colIdx, rowIdx) {
+	if (colIdx > 3) return null;
 	return Math.abs(
-		board[col][row] +
-		board[col + 1][row] +
-		board[col + 2][row] +
-		board[col + 3][row]
-	) === 4
-		? board[col][row]
-		: null;
+		board[colIdx][rowIdx] +
+		board[colIdx + 1][rowIdx] +
+		board[colIdx + 2][rowIdx] +
+		board[colIdx + 3][rowIdx]
+	) === 4 ? board[colIdx][rowIdx] : null;
 }
-function diagonalWin(col, row) {
-	if (col > 3) return null;
+
+function checkDiagonalWin(colIdx, rowIdx) {
+	if (colIdx > 3) return null;
 	var diagRightWin =
 		Math.abs(
-			board[col][row] +
-			board[col + 1][row + 1] +
-			board[col + 2][row + 2] +
-			board[col + 3][row + 3]
+			board[colIdx][rowIdx] +
+			board[colIdx + 1][rowIdx + 1] +
+			board[colIdx + 2][rowIdx + 2] +
+			board[colIdx + 3][rowIdx + 3]
 		) === 4;
 	var diagLeftWin =
 		Math.abs(
-			board[col][row] +
-			board[col + 1][row - 1] +
-			board[col + 2][row - 2] +
-			board[col + 3][row - 3]
+			board[colIdx][rowIdx] +
+			board[colIdx + 1][rowIdx - 1] +
+			board[colIdx + 2][rowIdx - 2] +
+			board[colIdx + 3][rowIdx - 3]
 		) === 4;
-	return diagRightWin || diagLeftWin ? board[col][row] : null;
+	return diagRightWin || diagLeftWin ? board[colIdx][rowIdx] : null;
 }
 
 function render() {
-	// transfer all state to the DOM aka changing look of html
 	board.forEach(function (col, colIdx) {
 		col.forEach(function (cell, rowIdx) {
 			var td = document.getElementById(`c${colIdx}r${rowIdx}`);
-			td.style.backgroundColor = players[cell];
+			td.style.backgroundColor = PLAYERS[cell];
 		});
 		columnButtons[colIdx].style.visibility = col.includes(null) ? "visible" : "hidden";
 	});
-
 	if (winner) {
-		// message.textContent = winningMessage[winner];
-		popUpText.textContent = winningMessage[winner];
+		popUpText.textContent = WINNING_MESSAGE[winner];
 		popUpBox.style.display = "block";
 	} else {
-		message.textContent = `Hello Player ${
-			playerTurn === 1 ? "One" : "Two"
-			}`;
+		message.textContent = `Hello Player ${playerTurn === 1 ? "One" : "Two"}`;
 	}
 }
-
 
 function initalize() {
 	playerTurn = 1;

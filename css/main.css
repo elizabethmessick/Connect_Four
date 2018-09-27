@@ -48,7 +48,6 @@ div {
 	margin: auto;
 	width: 600px;
 	height: 70px;
-	/* margin-top: 10px; */
 	text-align: center;
 }
 
@@ -87,14 +86,13 @@ button:hover {
 	margin: auto;
 	position: relative;
     top: -46px;
-
 }
 
 footer {
 	text-align: center;
 }
 
-#popUpBox {
+#pop-up-box {
 	height: 300px;
 	width: 300px;
 	background-color: dodgerblue;
