@@ -1,5 +1,4 @@
 ## Connect Four 
-
 ![Image of game play screen](https://i.imgur.com/qA8FpzC.png)
 
 ## Description
@@ -7,9 +6,7 @@
 
 - My connect four game is an immersive, audio visual experience built with dry code and groovy flare.
 
-
 ![Image of winning screen](https://i.imgur.com/ufa9heq.png)
-
 
 ## Technologies Used 
 - HTML
