@@ -28,4 +28,5 @@
 - Change color of "player turn"
 - Add a pause button for the background music music 
 - Have music play instantly 
+- Fix buttons so that they look the same on every device 
 
