@@ -13,9 +13,9 @@ const WINNING_MESSAGE = {
 
 /*----- app's state (variables) -----*/
 var board, playerTurn, winner, turnCounter;
-var beepAudio = new Audio("beep.mp3");
+var beepAudio = new Audio("audio/beep.mp3");
 var winningAudio = new Audio("https://www.thesoundarchive.com/austinpowers/yababy.mp3");
-var powersAudio = new Audio("powers.mp3");
+var powersAudio = new Audio("audio/powers.mp3");
 
 /*----- cached element references -----*/
 var message = document.getElementById("message");
@@ -43,21 +43,22 @@ columnButtons.forEach(function (button) {
 /*----- functions -----*/
 initalize();
 
+//checks for user button click
 function columnClick(event) {
-	if (winner !== null) return;
-	var target = event.target;
-	if (target.tagName !== "BUTTON") return;
-	var col = parseInt(target.id.charAt(6));
-	var row = board[col].indexOf(null);
+	if (winner !== null) return; //if winner is 1 or -1, game is over
+	var target = event.target; //assigns button clicked to target variable
+	var col = parseInt(target.id.charAt(6));//assigns current "Y" axis to col variable
+	var row = board[col].indexOf(null);//assigns current "X" axis to row variable 
 	powersAudio.play();
 	beepAudio.play();
-	board[col][row] = playerTurn;
+	board[col][row] = playerTurn; //change color of cell based on current player
 	turnCounter += 1;
 	setWinner();
 	playerTurn *= -1;
 	render();
 }
 
+//check rows and columns for 4 of the same "color" in a row.. vertically, horizontally, and diagnally.
 function setWinner() {
 	for (var colIdx = 0; colIdx < board.length; colIdx++) {
 		for (var rowIdx = 0; rowIdx < board[colIdx].length; rowIdx++) {
@@ -73,7 +74,7 @@ function setWinner() {
 function checkCellForWin(colIdx, rowIdx) {
 	return checkUpWin(colIdx, rowIdx) || checkSideWin(colIdx, rowIdx) || checkDiagonalWin(colIdx, rowIdx);
 }
-
+//check for 4 in a row vertically
 function checkUpWin(colIdx, rowIdx) {
 	if (rowIdx > 2) return null;
 	return Math.abs(
@@ -83,7 +84,7 @@ function checkUpWin(colIdx, rowIdx) {
 		board[colIdx][rowIdx + 3]
 	) === 4 ? board[colIdx][rowIdx] : null;
 }
-
+//check for 4 in a row horizontally
 function checkSideWin(colIdx, rowIdx) {
 	if (colIdx > 3) return null;
 	return Math.abs(
@@ -93,7 +94,7 @@ function checkSideWin(colIdx, rowIdx) {
 		board[colIdx + 3][rowIdx]
 	) === 4 ? board[colIdx][rowIdx] : null;
 }
-
+//check for 4 in a row diagnally
 function checkDiagonalWin(colIdx, rowIdx) {
 	if (colIdx > 3) return null;
 	var diagRightWin =

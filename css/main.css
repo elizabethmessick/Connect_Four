@@ -63,23 +63,15 @@ button {
 }
 
 #reset {
-	text-align: center;
-	padding: 2px;
 	width: 120px;
 	height: 40px;
 	color: rgb(35, 153, 182);
 	background-color: yellow;
 	border-radius: 10%;
-	font-weight: bold;
 	font-size: 20px;
-	margin: auto;
 	position: relative;
 	top: -46px;
 	border: 2px solid rgb(247, 85, 49);
-}
-
-footer {
-	text-align: center;
 }
 
 #pop-up-box {
