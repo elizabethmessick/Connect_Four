@@ -12,80 +12,83 @@
 </head>
 
 <body>
-    <div id="head">
-        <h1>CONNECT FOUR!</h1>
+    <div id="game-container">
 
-        <h2 id="message"></h2>
+        <div id="head">
+            <h1>CONNECT FOUR!</h1>
+
+            <h2 id="message"></h2>
+        </div>
+
+        <div id="slot">
+            <button id="column0">&#8595;</button>
+            <button id="column1">&#8595;</button>
+            <button id="column2">&#8595;</button>
+            <button id="column3">&#8595;</button>
+            <button id="column4">&#8595;</button>
+            <button id="column5">&#8595;</button>
+            <button id="column6">&#8595;</button>
+        </div>
+
+        <table id="board">
+            <tr>
+                <td id="c0r5"></td>
+                <td id="c1r5"></td>
+                <td id="c2r5"></td>
+                <td id="c3r5"></td>
+                <td id="c4r5"></td>
+                <td id="c5r5"></td>
+                <td id="c6r5"></td>
+            </tr>
+            <tr>
+                <td id="c0r4"></td>
+                <td id="c1r4"></td>
+                <td id="c2r4"></td>
+                <td id="c3r4"></td>
+                <td id="c4r4"></td>
+                <td id="c5r4"></td>
+                <td id="c6r4"></td>
+            </tr>
+            <tr>
+                <td id="c0r3"></td>
+                <td id="c1r3"></td>
+                <td id="c2r3"></td>
+                <td id="c3r3"></td>
+                <td id="c4r3"></td>
+                <td id="c5r3"></td>
+                <td id="c6r3"></td>
+            </tr>
+            <tr>
+                <td id="c0r2"></td>
+                <td id="c1r2"></td>
+                <td id="c2r2"></td>
+                <td id="c3r2"></td>
+                <td id="c4r2"></td>
+                <td id="c5r2"></td>
+                <td id="c6r2"></td>
+            </tr>
+            <tr>
+                <td id="c0r1"></td>
+                <td id="c1r1"></td>
+                <td id="c2r1"></td>
+                <td id="c3r1"></td>
+                <td id="c4r1"></td>
+                <td id="c5r1"></td>
+                <td id="c6r1"></td>
+            </tr>
+            <tr>
+                <td id="c0r0"></td>
+                <td id="c1r0"></td>
+                <td id="c2r0"></td>
+                <td id="c3r0"></td>
+                <td id="c4r0"></td>
+                <td id="c5r0"></td>
+                <td id="c6r0"></td>
+            </tr>
+        </table>
+
+        <button id="reset">RESET</button>
     </div>
-
-    <div id="slot">
-        <button id="column0">&#8595</button>
-        <button id="column1">&#8595</button>
-        <button id="column2">&#8595</button>
-        <button id="column3">&#8595</button>
-        <button id="column4">&#8595</button>
-        <button id="column5">&#8595</button>
-        <button id="column6">&#8595</button>
-    </div>
-
-    <table id="board">
-        <tr>
-            <td id="c0r5"></td>
-            <td id="c1r5"></td>
-            <td id="c2r5"></td>
-            <td id="c3r5"></td>
-            <td id="c4r5"></td>
-            <td id="c5r5"></td>
-            <td id="c6r5"></td>
-        </tr>
-        <tr>
-            <td id="c0r4"></td>
-            <td id="c1r4"></td>
-            <td id="c2r4"></td>
-            <td id="c3r4"></td>
-            <td id="c4r4"></td>
-            <td id="c5r4"></td>
-            <td id="c6r4"></td>
-        </tr>
-        <tr>
-            <td id="c0r3"></td>
-            <td id="c1r3"></td>
-            <td id="c2r3"></td>
-            <td id="c3r3"></td>
-            <td id="c4r3"></td>
-            <td id="c5r3"></td>
-            <td id="c6r3"></td>
-        </tr>
-        <tr>
-            <td id="c0r2"></td>
-            <td id="c1r2"></td>
-            <td id="c2r2"></td>
-            <td id="c3r2"></td>
-            <td id="c4r2"></td>
-            <td id="c5r2"></td>
-            <td id="c6r2"></td>
-        </tr>
-        <tr>
-            <td id="c0r1"></td>
-            <td id="c1r1"></td>
-            <td id="c2r1"></td>
-            <td id="c3r1"></td>
-            <td id="c4r1"></td>
-            <td id="c5r1"></td>
-            <td id="c6r1"></td>
-        </tr>
-        <tr>
-            <td id="c0r0"></td>
-            <td id="c1r0"></td>
-            <td id="c2r0"></td>
-            <td id="c3r0"></td>
-            <td id="c4r0"></td>
-            <td id="c5r0"></td>
-            <td id="c6r0"></td>
-        </tr>
-    </table>
-
-    <button id="reset">RESET</button>
 
     <div id="pop-up-box">
         <p id="pop-up-text"></p>

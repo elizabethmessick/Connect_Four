@@ -35,11 +35,11 @@ document.getElementById("playAgain").addEventListener("click", function () {
 columnButtons.forEach(function (button) {
 	button.addEventListener("mouseenter", function (e) {
 		e.target.style.backgroundColor = PLAYERS[playerTurn];
-	})
+	});
 	button.addEventListener("mouseout", function (e) {
 		e.target.style.backgroundColor = "lightpink";
-	})
-})
+	});
+});
 /*----- functions -----*/
 initalize();
 
